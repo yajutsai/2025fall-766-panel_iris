@@ -86,7 +86,8 @@ def update_plot(x, y, s, c, file_bytes):
 
 # DataFrame widget to show uploaded / predicted data (kept as a real DataFrame value)
 uploaded_table = pn.widgets.DataFrame(pd.DataFrame(), width=800, height=200,
-                                      sizing_mode="stretch_width", name='Uploaded Data Table')
+                                      #sizing_mode="stretch_width", 
+                                      name='Uploaded Data Table')
 
 def _update_uploaded_table(event):
     """Watch file_input.value and set uploaded_table.value to a real DataFrame."""
@@ -112,7 +113,7 @@ layout = pn.Row(
         pn.Spacer(height=10),
         f"## Model accuracy: {round(model_accuracy, 2)}%",
         width=320,
-        sizing_mode="fixed",
+        #sizing_mode="fixed",
     ),
     pn.Column(
         "# Iris Dataset Scatter Plot with Logistic Regression Predictions",
@@ -120,7 +121,7 @@ layout = pn.Row(
         pn.pane.Markdown("#### Uploaded data with predicted target species:"),
         uploaded_table,
         update_plot,  # pn will render the reactive plot here
-        sizing_mode="stretch_width",
+        #sizing_mode="stretch_width",
     ),
     sizing_mode="stretch_both",
 )
